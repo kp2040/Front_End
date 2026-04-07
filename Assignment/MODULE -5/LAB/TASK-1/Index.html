@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media and Graphics Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        canvas, svg {
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Audio Example</h2>
+    <audio controls autoplay muted loop>
+        <source src="sample-audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Video Example</h2>
+    <video width="320" height="240" controls autoplay muted loop>
+        <source src="sample-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2>Canvas Shapes</h2>
+    <canvas id="myCanvas" width="300" height="200"></canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Rectangle
+        ctx.fillStyle = "blue";
+        ctx.fillRect(20, 20, 100, 50);
+
+        // Circle
+        ctx.beginPath();
+        ctx.arc(200, 75, 40, 0, 2 * Math.PI);
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+        // Line
+        ctx.beginPath();
+        ctx.moveTo(20, 150);
+        ctx.lineTo(280, 150);
+        ctx.stroke();
+    </script>
+
+    <h2>SVG Shapes</h2>
+    <svg width="300" height="200">
+        <!-- Rectangle -->
+        <rect x="10" y="10" width="100" height="50" fill="green" />
+
+        <!-- Circle -->
+        <circle cx="200" cy="50" r="30" fill="orange" />
+
+        <!-- Line -->
+        <line x1="10" y1="150" x2="290" y2="150" stroke="black" stroke-width="2" />
+    </svg>
+
+</body>
+</html>
