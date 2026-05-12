@@ -1,0 +1,121 @@
+@font-face {
+    font-family: myfont;
+    src: url("../Fonts/HVD\ Poster.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+header {
+
+    background-color: #3752a5;
+    padding: 20px 0;
+}
+
+header .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .menu {
+    list-style: none;
+}
+
+header .menu li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+header .menu li a {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+header .social {
+    list-style: none;
+}
+
+header .social li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+header .social li a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+header .social li {
+    display: inline-block;
+    margin: 0 10px;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+
+header .social li a {
+    color: black;
+}
+
+#header {
+    background-color: #ffcc00;
+}
+
+.main-header-box {
+    display: flex;
+}
+
+.header-title {
+    width: 500px;
+    
+    display: block;
+    align-items: center;
+    margin: 150px 0px 10px 210px;
+}
+.header-img{
+        
+}
+
+.header-title .header-title-1 p {
+    font-family: myfont;
+    font-size: 148px;
+    text-align: right;
+    line-height: 129px;
+    color: #3c54a0;
+    font-weight: 400;
+    position: relative;
+}
+
+.header-title .header-title-2 p {
+    font-size: 60px;
+    color: #c8206a;
+    font-weight: 400;
+    font-family: myfont;
+    z-index: 2;
+        transform: translate(212px, -30px);
+    position: absolute;
+}
+
+.header-title .header-title-3 p {
+    position: relative;
+    font-family: myfont;
+    font-size: 148px;
+    text-align: left;
+    line-height: 129px;
+    color: #3c54a0;
+    font-weight: 400;
+}

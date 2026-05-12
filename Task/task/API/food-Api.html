@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Api</title>
+</head>
+<body>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Dish</th>
+                <th>Drink</th>
+                <th>Restaurant</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+
+        fetch('https://api.mydummyapi.com/categories/food')
+        .then((data)=> data.json())
+        .then((res)=> {
+
+            let rows = "";
+
+            for(let item of res){
+                rows += `
+                <tr>
+                    <td>${item.id}</td>
+                    <td>${item.dish}</td>
+                    <td>${item.drink}</td>
+                    <td>${item.restaurant}</td>
+                    <td>${item.price}</td>
+                </tr>
+                `;
+            }
+
+            document.querySelector('#tbody').innerHTML = rows;
+
+        })
+        .catch((err)=>{
+            console.log("Error:", err);
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+.logo-area img {
+    max-width: 115px;
+}
+.search-area input:focus-visible {
+    outline: none;
+}

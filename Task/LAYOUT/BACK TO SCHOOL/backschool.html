@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back To School Template</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #1e4fb7;
+            color: #fff;
+        }
+
+        /* =================== HEADER =================== */
+        header {
+            width: 100%;
+            background: #1e4fb7;
+            padding: 20px 80px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        .icons span {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* =================== HERO =================== */
+        .hero {
+            background: #f7b500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 80px;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 70px;
+            line-height: 80px;
+            color: #2143a5;
+            font-weight: 900;
+        }
+
+        .hero-text h1 span {
+            color: #ff1d77;
+        }
+
+        .hero-text p {
+            margin: 20px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .hero-text button {
+            padding: 12px 28px;
+            background: #ff1d77;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .hero-img img {
+            width: 350px;
+        }
+
+        /* =================== LETS GO SECTION =================== */
+        .banner {
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') center/cover;
+            position: relative;
+            padding: 100px;
+            text-align: center;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 79, 183, .7);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner h2 {
+            font-size: 70px;
+            color: #ff1d77;
+            font-weight: 900;
+        }
+
+        .banner p {
+            font-size: 24px;
+            margin: 10px 0 20px;
+        }
+
+        .banner button {
+            padding: 12px 28px;
+            border: none;
+            background: #ff1d77;
+            color: #fff;
+            border-radius: 30px;
+        }
+
+        /* =================== COUNTDOWN =================== */
+        .countdown {
+            padding: 80px;
+            text-align: center;
+            background: #1e4fb7;
+        }
+
+        .timer-box {
+            background: rgba(255, 255, 255, .12);
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 50px;
+            border-radius: 30px;
+        }
+
+        .time h3 {
+            font-size: 50px;
+            color: #ffcc00;
+        }
+
+        .time p {
+            font-size: 14px;
+        }
+
+        /* =================== INFO BOXES =================== */
+        .info {
+            background: #f7b500;
+            padding: 80px;
+            color: #1e4fb7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            text-align: center;
+        }
+
+        .card h3 {
+            margin: 15px 0;
+        }
+
+        /* =================== WHO WE ARE =================== */
+        .about {
+            background: #f7b500;
+            padding: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #1e4fb7;
+        }
+
+        .about img {
+            width: 300px;
+        }
+
+        .about-text {
+            width: 50%;
+        }
+
+        .about-text h2 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .about-text button {
+            margin-top: 20px;
+            padding: 12px 28px;
+            background: #1e4fb7;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+        }
+
+        /* =================== NEWSLETTER =================== */
+        .newsletter {
+            background: #f7b500;
+            padding: 80px;
+            text-align: center;
+            color: #1e4fb7;
+        }
+
+        .newsletter input {
+            width: 400px;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+
+        /* =================== FOOTER =================== */
+        footer {
+            background: #1e4fb7;
+            padding: 40px 80px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer h4 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        .social span {
+            margin-right: 12px;
+        }
+
+        /* =================== RESPONSIVE =================== */
+        @media(max-width:900px) {
+
+            .hero,
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text,
+            .about-text {
+                width: 100%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .timer-box {
+                flex-wrap: wrap;
+            }
+
+            .newsletter input {
+                width: 100%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">☰</div>
+
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+            <div class="col">
+                <ul class="social">
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+            <div class="icons">
+                <span>◎</span>
+                <span>◎</span>
+                <span>◎</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>BACK <br><span>TO</span> SCHOOL</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <button>Learn More</button>
+        </div>
+
+        <div class="hero-img">
+            <img src="./images/header-1.png">
+        </div>
+    </section>
+
+    <!-- LETS GO -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>LET'S GO!</h2>
+            <p>TIME TO KNOWLEDGE</p>
+            <button>Learn Now</button>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown">
+        <div class="timer-box">
+            <div class="time">
+                <h3>15</h3>
+                <p>Days</p>
+            </div>
+
+            <div class="time">
+                <h3>30</h3>
+                <p>Hours</p>
+            </div>
+
+            <div class="time">
+                <h3>23</h3>
+                <p>Minutes</p>
+            </div>
+
+            <div class="time">
+                <h3>05</h3>
+                <p>Seconds</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO -->
+    <section class="info">
+        <div class="cards">
+
+            <div class="card">
+                <h3>More Info</h3>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+
+            <div class="card">
+                <h3>More Info</h3>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+
+            <div class="card">
+                <h3>More Info</h3>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+
+        <img src="./images/header-1.png">
+
+        <div class="about-text">
+            <h2>Who We Are?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum molestias officiis cumque.</p>
+            <button>Read More</button>
+        </div>
+
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <h2>More Info</h2>
+        <p>Subscribe for latest updates</p>
+        <input type="text" placeholder="Your Email">
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div>
+            <h4>CONTACT US</h4>
+            <p>37 Avenue 55, Montreal, Canada</p>
+            <p>123-456-789</p>
+        </div>
+
+        <div>
+            <h4>About</h4>
+            <p>Team</p>
+            <p>Join us</p>
+            <p>Ethic</p>
+        </div>
+
+        <div class="social">
+            <h4>Follow</h4>
+            <span>◎</span>
+            <span>◎</span>
+            <span>◎</span>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
