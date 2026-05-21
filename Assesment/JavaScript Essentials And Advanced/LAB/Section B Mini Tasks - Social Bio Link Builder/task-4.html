@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LocalStorage Link Manager</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f2f2f2;
+      padding:40px;
+    }
+
+    .container{
+      width:500px;
+      margin:auto;
+      background:#fff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2,h3{
+      text-align:center;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+
+    button{
+      padding:10px 15px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    .add-btn{
+      width:100%;
+      background:#007bff;
+      color:white;
+      font-size:16px;
+    }
+
+    .add-btn:hover{
+      background:#0056b3;
+    }
+
+    .error{
+      color:red;
+      margin-bottom:10px;
+    }
+
+    .link-item{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+      align-items:center;
+    }
+
+    .link-btn{
+      flex:1;
+      text-decoration:none;
+      background:#28a745;
+      color:white;
+      padding:10px;
+      border-radius:5px;
+      text-align:center;
+    }
+
+    .delete-btn{
+      background:red;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h2>Profile Link Manager</h2>
+
+    <form id="linkForm">
+
+      <input type="text" id="title" placeholder="Enter Title" required>
+
+      <input type="text" id="url" placeholder="Enter URL (https://example.com)" required>
+
+      <div class="error" id="errorMsg"></div>
+
+      <button type="submit" class="add-btn">Add Link</button>
+
+    </form>
+
+    <h3>Profile Preview</h3>
+
+    <div id="profileLinks"></div>
+
+  </div>
+
+  <script>
+
+    // Load saved data from localStorage
+    let links = JSON.parse(localStorage.getItem("links")) || [];
+
+    // Form submit
+    document.getElementById("linkForm").addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      let title = document.getElementById("title").value.trim();
+      let url = document.getElementById("url").value.trim();
+
+      let errorMsg = document.getElementById("errorMsg");
+
+      // URL validation
+      let regex = /^https:\/\/.+/;
+
+      if(!regex.test(url)){
+        errorMsg.textContent = "URL must start with https://";
+        return;
+      }
+
+      errorMsg.textContent = "";
+
+      // Create object
+      let linkObject = {
+        title: title,
+        url: url
+      };
+
+      // Add object to array
+      links.push(linkObject);
+
+      // Save array to localStorage
+      saveLinks();
+
+      // Render links
+      renderLinks();
+
+      // Reset form
+      document.getElementById("linkForm").reset();
+
+    });
+
+    // Save data in localStorage
+    function saveLinks(){
+      localStorage.setItem("links", JSON.stringify(links));
+    }
+
+    // Render all links
+    function renderLinks(){
+
+      let profileLinks = document.getElementById("profileLinks");
+
+      profileLinks.innerHTML = "";
+
+      links.forEach(function(link, index){
+
+        let div = document.createElement("div");
+        div.className = "link-item";
+
+        // Create clickable link button
+        let a = document.createElement("a");
+
+        a.href = link.url;
+        a.textContent = link.title;
+
+        // Open in new tab
+        a.target = "_blank";
+
+        a.className = "link-btn";
+
+        // Delete button
+        let deleteBtn = document.createElement("button");
+
+        deleteBtn.textContent = "Delete";
+        deleteBtn.className = "delete-btn";
+
+        // Remove link
+        deleteBtn.addEventListener("click", function(){
+
+          // Remove item from array
+          links.splice(index, 1);
+
+          // Update localStorage
+          saveLinks();
+
+          // Re-render links
+          renderLinks();
+
+        });
+
+        // Append elements
+        div.appendChild(a);
+        div.appendChild(deleteBtn);
+
+        profileLinks.appendChild(div);
+
+      });
+
+    }
+
+    // Auto load saved links after refresh
+    renderLinks();
+
+  </script>
+
+</body>
+</html>

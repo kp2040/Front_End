@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Links Preview</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f4f4;
+      padding:40px;
+    }
+
+    .container{
+      width:450px;
+      margin:auto;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2,h3{
+      text-align:center;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+
+    button{
+      width:100%;
+      padding:10px;
+      background:#007bff;
+      color:white;
+      border:none;
+      border-radius:5px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#0056b3;
+    }
+
+    .error{
+      color:red;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .preview{
+      margin-top:25px;
+      padding:15px;
+      background:#f9f9f9;
+      border-radius:8px;
+      border:1px solid #ddd;
+    }
+
+    .link-btn{
+      display:block;
+      text-decoration:none;
+      background:#28a745;
+      color:white;
+      padding:10px;
+      margin:10px 0;
+      text-align:center;
+      border-radius:5px;
+      transition:0.3s;
+    }
+
+    .link-btn:hover{
+      background:#1e7e34;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h2>Profile Link Form</h2>
+
+    <form id="linkForm">
+
+      <input type="text" id="title" placeholder="Enter Title" required>
+
+      <input type="text" id="url" placeholder="Enter URL (https://example.com)" required>
+
+      <div class="error" id="errorMsg"></div>
+
+      <button type="submit">Add Link</button>
+
+    </form>
+
+    <div class="preview">
+      <h3>Profile Preview</h3>
+
+      <div id="profileLinks"></div>
+    </div>
+
+  </div>
+
+  <script>
+
+    // Array to store links
+    let links = [];
+
+    // Form submit
+    document.getElementById("linkForm").addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      let title = document.getElementById("title").value.trim();
+      let url = document.getElementById("url").value.trim();
+
+      let errorMsg = document.getElementById("errorMsg");
+
+      // URL validation
+      let urlPattern = /^https:\/\/.+/;
+
+      if(!urlPattern.test(url)){
+        errorMsg.textContent = "Invalid URL! URL must start with https://";
+        return;
+      }
+
+      // Clear error
+      errorMsg.textContent = "";
+
+      // Create object
+      let linkObject = {
+        title: title,
+        url: url
+      };
+
+      // Store in array
+      links.push(linkObject);
+
+      // Render profile preview
+      renderLinks();
+
+      // Reset form
+      document.getElementById("linkForm").reset();
+
+    });
+
+    // Function to render links
+    function renderLinks(){
+
+      let profileLinks = document.getElementById("profileLinks");
+
+      // Clear previous content
+      profileLinks.innerHTML = "";
+
+      // Loop through array
+      links.forEach(function(link){
+
+        // Create anchor button
+        let a = document.createElement("a");
+
+        a.href = link.url;
+        a.textContent = link.title;
+
+        // Open in new tab
+        a.target = "_blank";
+
+        // Security best practice
+        a.rel = "noopener noreferrer";
+
+        // Add class
+        a.className = "link-btn";
+
+        // Append
+        profileLinks.appendChild(a);
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
