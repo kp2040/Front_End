@@ -1,5 +1,8 @@
 import React from "react"
-import Cardcontainer from "./assets/props/Cardcontainer"
+// import Cardcontainer from "./assets/props/Cardcontainer"
+import MainState from "./assets/State/MainState"
+// import FunState from "./FunState";
+// import FunObj from "./FunObj";
 
 
 
@@ -7,7 +10,13 @@ import Cardcontainer from "./assets/props/Cardcontainer"
 function App() {
 
   return (
-  <Cardcontainer/>
+    <div>
+      {/* <Cardcontainer /> */}
+      <MainState />
+
+    </div>
+
+
   )
 }
 
