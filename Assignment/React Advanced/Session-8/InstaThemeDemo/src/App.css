@@ -1,0 +1,24 @@
+.app {
+  min-height: 100vh;
+  text-align: center;
+}
+
+.navbar {
+  background: #e23744;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  border: 1px solid #ddd;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
