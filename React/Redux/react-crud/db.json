@@ -1,0 +1,27 @@
+{
+"user": [
+    {
+      "id": "UKBgdbn29ok",
+      "name": "Krish panchal",
+      "email": "krish.panchal.tops@gmail.com",
+      "password": "wqd"
+    },
+    {
+      "id": "zW7s16TBHeM",
+      "name": "Yash patel",
+      "email": "yash.patel.tops@gmail.com",
+      "password": "sdafsaf"
+    }
+  ],
+  "admin": [
+    {
+      "id": "1",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "1234"
+    }
+  ]
+
+
+}
+  

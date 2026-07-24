@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Demo & Instagram Profile Card</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-sky-200">
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col items-center justify-center p-6 space-y-10">
+
+        <!-- ================= Tailwind CSS Demo ================= -->
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-md w-full">
+
+            <h1 class="text-3xl font-bold text-blue-600">
+                Tailwind CSS is Working! 🎉
+            </h1>
+
+            <p class="mt-4 text-gray-700">
+                The page background is <strong>sky-200</strong>, which confirms
+                that Tailwind CSS has been loaded successfully.
+            </p>
+
+        </div>
+
+        <!-- ================= Instagram Profile Card ================= -->
+        <div class="bg-white w-80 rounded-xl shadow-lg p-6 text-center">
+
+            <!-- Profile Image -->
+            <img
+                src="https://via.placeholder.com/150"
+                alt="Profile"
+                class="w-28 h-28 rounded-full mx-auto border-4 border-pink-500"
+            >
+
+            <!-- Username -->
+            <h2 class="text-2xl font-bold text-gray-800 mt-4">
+                @krish_panchal
+            </h2>
+
+            <!-- Bio -->
+            <p class="text-gray-500 mt-2">
+                Front-End Developer 💻 <br>
+                React | Tailwind CSS | JavaScript
+            </p>
+
+            <!-- Follow Button -->
+            <button
+                class="mt-5 bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-2 rounded-full transition duration-300">
+                Follow
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

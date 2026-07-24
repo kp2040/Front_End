@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        section.info {
+            background-color: #f2f2f2;
+        }
+
+        .container-1 {
+            width: 95%;
+            margin: 10px auto;
+        }
+
+        .main-box .img-box {
+            width: 70px;
+        }
+
+        .main-box .img-box img {
+            width: 100%;
+        }
+        section.new-ari .new-ari-title .line{
+            width: 150px;
+            height: 2px;
+            background-color: black;
+        }
+        section.new-ari .new-ari-title p{
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="info">
+        <div class="container-1 d-flex justify-content-center py-5">
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="main-box p-3 mx-2">
+                        <div class="img-box border border-rounded rounded-circle my-2 bg-white">
+                            <img src="../public/img/leaves.svg" class="p-3" alt="">
+                        </div>
+                        <div class="title-box">
+                            <h4 class="fs-4">Eco-friendly Materials</h4>
+                            <p class="fs-6">We craft our furniture using responsibly sourced, environmentally friendly
+                                materials.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="main-box p-3 mx-2">
+                        <div class="img-box border border-rounded rounded-circle my-2 bg-white">
+                            <img src="../public/img/pen-slash.svg" class="p-3" alt="">
+                        </div>
+                        <div class="title-box">
+                            <h4 class="fs-4">Effortless Assembly</h4>
+                            <p class="fs-6">Thoughtfully designed for quick setup, requiring minimal effort and no extra
+                                tools.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="main-box p-3 mx-2">
+                        <div class="img-box border border-rounded rounded-circle my-2 bg-white">
+                            <img src="../public/img/recycle.svg" class="p-3" alt="">
+                        </div>
+                        <div class="title-box">
+                            <h4 class="fs-4">Giving Back To Nature</h4>
+                            <p class="fs-6">Every purchase contributes to reforestation efforts, helping restore green
+                                spaces.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="main-box p-3 mx-2">
+                        <div class="img-box border border-rounded rounded-circle my-2 bg-white">
+                            <img src="../public/img/idea.svg" class="p-3" alt="">
+                        </div>
+                        <div class="title-box">
+                            <h4 class="fs-4">Sustainable Production</h4>
+                            <p class="fs-6">Dedicated to reducing waste and promoting eco-conscious manufacturing
+                                practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="new-ari">
+        <div class="new-ari-title d-flex align-items-center gap-2">
+            <h3>NEW ARRIVALS</h3>
+            <div class="line "></div>
+           <p class="my-2">NEW DESIGNS, ENDLESS INSPIRATION</p>
+        </div>
+        <div class="container mt-5">
+            <!-- Tabs -->
+            <ul class="nav" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <button class="new-ari-btn nav-link gap-3 bg-light active border-0" data-bs-toggle="tab" data-bs-target="#home">
+                        Home
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link bg-light border-0" data-bs-toggle="tab" data-bs-target="#about">
+                        About
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link border-0 bg-light" data-bs-toggle="tab" data-bs-target="#contact">
+                        Contact
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content ">
+
+                <div class="tab-pane fade show active" id="home">
+                    <h3>Home</h3>
+                    <p>Welcome to Home Page.</p>
+                </div>
+
+                <div class="tab-pane fade" id="about">
+                    <h3>About</h3>
+                    <p>This is About Page.</p>
+                </div>
+
+                <div class="tab-pane fade" id="contact">
+                    <h3>Contact</h3>
+                    <p>This is Contact Page.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
