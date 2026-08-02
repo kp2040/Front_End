@@ -1,0 +1,723 @@
+/* ==========================================================================
+   NovaCraft - Premium Corporate Agency & Tech Solutions
+   Core Style Sheet (style.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ROOT VARIABLES & THEME DEFINITIONS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Light Theme Color Palette */
+  --bg-primary: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.72);
+  --bg-surface-solid: #ffffff;
+  --bg-subtle: #f1f5f9;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  
+  --border-color: rgba(226, 232, 240, 0.8);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+  --glass-border-hover: 1px solid rgba(99, 102, 241, 0.4);
+  --glass-shadow: 0 10px 30px -5px rgba(31, 38, 135, 0.07), 0 4px 12px 0 rgba(0, 0, 0, 0.03);
+  --glass-shadow-hover: 0 20px 40px -10px rgba(99, 102, 241, 0.2);
+
+  /* Vibrant Accents */
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --purple-color: #8b5cf6;
+  --pink-color: #ec4899;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --info-color: #06b6d4;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%);
+  --gradient-pink: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  --gradient-info: linear-gradient(135deg, #06b6d4 0%, #38bdf8 100%);
+
+  /* Transitions & Radii */
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+  --bg-primary: #0b0f19;
+  --bg-surface: rgba(17, 24, 39, 0.75);
+  --bg-surface-solid: #111827;
+  --bg-subtle: #1f2937;
+  
+  --text-primary: #f9fafb;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  
+  --border-color: rgba(55, 65, 81, 0.6);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.12);
+  --glass-border-hover: 1px solid rgba(129, 140, 248, 0.5);
+  --glass-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 4px 12px 0 rgba(0, 0, 0, 0.3);
+  --glass-shadow-hover: 0 20px 40px -10px rgba(129, 140, 248, 0.3);
+
+  --gradient-primary: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #f472b6 100%);
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL BASE STYLES & RESET
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .display-1, .display-4, .display-5, .display-6, .navbar-brand {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+.max-w-500 { max-width: 500px; }
+.max-w-600 { max-width: 600px; }
+.max-w-700 { max-width: 700px; }
+.max-w-800 { max-width: 800px; }
+
+.section-padding {
+  padding: 100px 0;
+}
+
+.text-purple { color: var(--purple-color) !important; }
+.text-pink { color: var(--pink-color) !important; }
+
+/* --------------------------------------------------------------------------
+   3. GLASSMORPHISM UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+.glass-card {
+  background: var(--bg-surface);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-normal);
+}
+
+.glass-card:hover {
+  box-shadow: var(--glass-shadow-hover);
+  border: var(--glass-border-hover);
+}
+
+.glass-inner-card {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: var(--transition-fast);
+}
+
+[data-theme="dark"] .glass-inner-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background Color Gradients for Icons */
+.bg-gradient-primary { background: var(--gradient-primary) !important; }
+.bg-gradient-purple { background: var(--gradient-purple) !important; }
+.bg-gradient-pink { background: var(--gradient-pink) !important; }
+.bg-gradient-success { background: var(--gradient-success) !important; }
+.bg-gradient-warning { background: var(--gradient-warning) !important; }
+.bg-gradient-info { background: var(--gradient-info) !important; }
+
+/* Subtle Badge Colors */
+.bg-purple-subtle { background: rgba(139, 92, 246, 0.15) !important; }
+.bg-pink-subtle { background: rgba(236, 72, 153, 0.15) !important; }
+
+/* --------------------------------------------------------------------------
+   4. PRELOADER SCREEN
+   -------------------------------------------------------------------------- */
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner-ring {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(99, 102, 241, 0.2);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   5. STICKY GLASS NAVBAR
+   -------------------------------------------------------------------------- */
+.glass-nav {
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: var(--glass-border);
+  padding: 18px 0;
+  transition: var(--transition-normal);
+  z-index: 1050;
+}
+
+.glass-nav.scrolled {
+  padding: 12px 0;
+  box-shadow: var(--glass-shadow);
+}
+
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--gradient-primary);
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.navbar-menu .nav-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: 8px 16px !important;
+  border-radius: 30px;
+  transition: var(--transition-fast);
+}
+
+.navbar-menu .nav-link:hover,
+.navbar-menu .nav-link.active {
+  color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+[data-theme="dark"] .navbar-menu .nav-link:hover,
+[data-theme="dark"] .navbar-menu .nav-link.active {
+  color: #a5b4fc;
+  background: rgba(129, 140, 248, 0.15);
+}
+
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  transform: rotate(15deg);
+}
+
+/* Custom Buttons */
+.btn-gradient {
+  background: var(--gradient-primary);
+  color: #ffffff !important;
+  border: none;
+  font-weight: 600;
+  transition: var(--transition-normal);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+}
+
+.btn-glass {
+  background: var(--bg-surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--glass-border);
+  color: var(--text-primary) !important;
+  font-weight: 600;
+  transition: var(--transition-normal);
+}
+
+.btn-glass:hover {
+  background: var(--bg-subtle);
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO SECTION & ANIMATED SHAPES
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding-top: 140px;
+  padding-bottom: 90px;
+}
+
+.hero-bg-shapes .shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.4;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatOrb 12s infinite alternate ease-in-out;
+}
+
+.hero-bg-shapes .shape-1 {
+  width: 450px;
+  height: 450px;
+  background: #6366f1;
+  top: -100px;
+  left: -100px;
+}
+
+.hero-bg-shapes .shape-2 {
+  width: 380px;
+  height: 380px;
+  background: #ec4899;
+  bottom: 5%;
+  right: -50px;
+  animation-delay: -4s;
+}
+
+.hero-bg-shapes .shape-3 {
+  width: 300px;
+  height: 300px;
+  background: #8b5cf6;
+  top: 40%;
+  left: 45%;
+  animation-delay: -8s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -50px) scale(1.1); }
+  100% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+.badge-pill {
+  background: var(--bg-surface);
+  border: var(--glass-border);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  box-shadow: var(--glass-shadow);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--success-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.typing-cursor {
+  font-weight: 300;
+  color: var(--primary-color);
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 2px solid var(--bg-primary);
+  margin-left: -10px;
+}
+
+.avatar-circle:first-child {
+  margin-left: 0;
+}
+
+/* Floating Badges in Hero */
+.floating-badge {
+  position: absolute;
+  z-index: 3;
+  min-width: 210px;
+}
+
+.badge-top-right {
+  top: -20px;
+  right: -20px;
+}
+
+.badge-bottom-left {
+  bottom: -20px;
+  left: -20px;
+}
+
+.float-anim-1 {
+  animation: floatingOne 5s infinite ease-in-out;
+}
+
+.float-anim-2 {
+  animation: floatingTwo 6s infinite ease-in-out;
+}
+
+@keyframes floatingOne {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes floatingTwo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
+/* Mockup Visual */
+.hero-mockup .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   7. FEATURES & SECTION HEADERS
+   -------------------------------------------------------------------------- */
+.section-badge {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 4px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+/* --------------------------------------------------------------------------
+   8. ABOUT & STATS COUNTER
+   -------------------------------------------------------------------------- */
+.about-graphic {
+  background: var(--gradient-primary);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-item {
+  transition: var(--transition-fast);
+}
+
+.stat-item:hover {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   9. SERVICES & MODALS
+   -------------------------------------------------------------------------- */
+.service-card {
+  transition: var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+}
+
+.modal-content.glass-card {
+  background: var(--bg-surface-solid);
+  border: var(--glass-border);
+}
+
+/* --------------------------------------------------------------------------
+   10. PORTFOLIO SECTION & FILTERS
+   -------------------------------------------------------------------------- */
+.portfolio-filter .filter-btn {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  background: transparent;
+  transition: var(--transition-fast);
+}
+
+.portfolio-filter .filter-btn.active,
+.portfolio-filter .filter-btn:hover {
+  background: var(--gradient-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.portfolio-card {
+  transition: var(--transition-normal);
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+}
+
+.portfolio-thumb {
+  min-height: 200px;
+}
+
+/* --------------------------------------------------------------------------
+   11. PRICING SECTION
+   -------------------------------------------------------------------------- */
+.pricing-card {
+  transition: var(--transition-normal);
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--primary-color) !important;
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25);
+}
+
+.featured-ribbon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--gradient-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Custom Switch */
+.custom-switch .form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* --------------------------------------------------------------------------
+   12. TESTIMONIALS & TEAM
+   -------------------------------------------------------------------------- */
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  opacity: 0.3;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  width: 28px;
+  border-radius: 10px;
+}
+
+.team-card {
+  transition: var(--transition-normal);
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+}
+
+.social-icon-btn {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   13. FAQ ACCORDION
+   -------------------------------------------------------------------------- */
+.custom-accordion .accordion-button:not(.collapsed) {
+  color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.custom-accordion .accordion-button::after {
+  filter: grayscale(1);
+}
+
+[data-theme="dark"] .custom-accordion .accordion-button::after {
+  filter: invert(1);
+}
+
+/* --------------------------------------------------------------------------
+   14. CONTACT FORM & INPUTS
+   -------------------------------------------------------------------------- */
+.glass-input {
+  background: var(--bg-surface);
+  border: var(--glass-border);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  transition: var(--transition-fast);
+}
+
+.glass-input:focus {
+  background: var(--bg-surface-solid);
+  border-color: var(--primary-color);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   15. FOOTER & SCROLL TO TOP
+   -------------------------------------------------------------------------- */
+.footer {
+  background: var(--bg-surface-solid);
+  border-top: var(--glass-border);
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background: var(--gradient-primary);
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-50%) scale(1.1);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   16. SCROLL REVEAL ANIMATIONS
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}

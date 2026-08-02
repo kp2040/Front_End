@@ -1,0 +1,210 @@
+/* ==========================================================================
+   NovaCraft - Premium Corporate Agency & Tech Solutions
+   Responsive Media Queries (responsive.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. EXTRA LARGE SCREENS (>= 1400px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  .display-4 {
+    font-size: 3.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. DESKTOPS & LAPTOPS (992px to 1199px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .badge-top-right {
+    top: -15px;
+    right: -10px;
+  }
+  
+  .badge-bottom-left {
+    bottom: -15px;
+    left: -10px;
+  }
+
+  .floating-badge {
+    min-width: 180px;
+    padding: 10px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. TABLETS & SMALL LAPTOPS (768px to 991px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .section-padding {
+    padding: 70px 0;
+  }
+
+  /* Sticky Navbar Mobile Dropdown */
+  #navbarContent {
+    background: var(--bg-surface-solid);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-top: 15px;
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .navbar-menu .nav-link {
+    padding: 10px 16px !important;
+    border-radius: 8px;
+  }
+
+  .hero-section {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+  }
+
+  .hero-visual-container {
+    margin-top: 20px;
+  }
+
+  /* About section floating badge */
+  .about-floating-badge {
+    position: relative !important;
+    bottom: auto !important;
+    start: auto !important;
+    margin: 15px 0 0 0 !important;
+    width: 100%;
+  }
+
+  .featured-ribbon {
+    top: 12px;
+    right: 12px;
+  }
+
+  .map-placeholder {
+    margin-top: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. PHABLETS & LARGE PHONES (576px to 767px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .display-6 {
+    font-size: 1.8rem;
+  }
+
+  /* Stack floating badges in hero for clean visibility */
+  .badge-top-right,
+  .badge-bottom-left {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  .hero-mockup {
+    padding: 16px !important;
+  }
+
+  .stats-grid .stat-item {
+    padding: 12px !important;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .portfolio-filter .filter-btn {
+    font-size: 0.8rem;
+    padding: 6px 12px !important;
+  }
+
+  .testimonial-card {
+    padding: 28px 18px !important;
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. EXTRA SMALL PHONES (< 576px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 575px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .btn-lg {
+    padding: 12px 20px !important;
+    font-size: 0.95rem;
+  }
+
+  .avatar-group .avatar-circle {
+    width: 30px;
+    height: 30px;
+    font-size: 0.7rem;
+  }
+
+  .service-card,
+  .feature-card,
+  .pricing-card {
+    padding: 20px !important;
+  }
+
+  .modal-dialog {
+    margin: 10px;
+  }
+
+  .modal-body {
+    padding: 20px !important;
+  }
+
+  .toast-container {
+    width: 100%;
+    padding: 10px !important;
+  }
+
+  .toast {
+    width: 100%;
+  }
+}
+
+/* Touch targets accessibility optimization */
+button,
+a,
+input,
+select,
+textarea {
+  min-height: 44px;
+}
